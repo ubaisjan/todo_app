@@ -1,0 +1,349 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body{
+  background: #dfe8f5;
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Common Card */
+.task-form, .delete-form, .search-div, .task-list, .display{
+  width: 100%;
+  max-width: 460px;
+  background: #ffffff;
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.09);
+  border: 1px solid #e5e7eb;
+}
+
+h1{
+  text-align: center;
+  font-size: 22px;
+  color: #111827;
+  margin-bottom: 15px;
+}
+
+label{
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: #374151;
+  margin: 12px 0 5px 2px;
+}
+
+input, select{
+  width: 100%;
+  padding: 11px 12px;
+  border: 1.5px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  background: #f9fafb;
+  outline: none;
+  transition: 0.2s;
+  margin-bottom: 2px;
+}
+
+input:focus, select:focus{
+  border-color: #2563eb;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.15);
+}
+
+button, #list-button{
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  color: white;
+  transition: 0.2s;
+}
+
+#submit-task{ background: #2563eb; }
+#submit-task:hover{ background: #1e40af; }
+
+#delete-button{ background: #ef4444; }
+#delete-button:hover{ background: #dc2626; }
+
+.search-div{
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+}
+.search-div input{ margin: 0; flex: 1; }
+#search-button{
+  width: 46px;
+  height: 42px;
+  flex-shrink: 0;
+  background: #111827;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.task-list{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.task-list p{ font-weight: 700; font-size: 14px; }
+#list-button{
+  width: auto;
+  padding: 8px 20px;
+  background: #059669;
+}
+#list-button:hover{ background: #047857; }
+
+/* DISPLAY FIX - Yahi tumhara main issue tha */
+.display:empty{
+  display: none;
+}
+.display{
+  padding: 12px;
+}
+.display h3{
+  display: inline;
+  font-size: 14px;
+  color: #1e40af;
+  font-weight: 800;
+}
+.display p{
+  display: inline;
+  font-size: 13px;
+  color: #374151;
+  line-height: 1.6;
+  word-break: break-word;
+  background: #f3f4f6;
+  padding: 4px 8px;
+  border-radius: 6px;
+  margin-left: 6px;
+}
+.display h3::after{ content: ""; display: block; margin-top: 4px; }
+.display p::after{
+  content: "";
+  display: block;
+  height: 1px;
+  background: #e5e7eb;
+  margin: 12px 0;
+}
+
+/* Messages ke liye */
+#submit-task-div p, #delete-div p, #search-div p{
+  font-size: 13px;
+  margin-top: 8px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+
+/* LAPTOP / PC VIEW */
+@media (min-width: 900px){
+  body{
+    display: grid;
+    grid-template-columns: 460px 460px;
+    justify-content: center;
+    align-items: start;
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-top: 30px;
+  }
+  .task-form{
+    grid-column: 1;
+    grid-row: 1 / span 10;
+    position: sticky;
+    top: 20px;
+    max-width: 100%;
+  }
+  .delete-form{
+    grid-column: 2;
+    grid-row: 1;
+    max-width: 100%;
+  }
+  .search-div{
+    grid-column: 2;
+    grid-row: 2;
+    max-width: 100%;
+  }
+  .task-list{
+    grid-column: 2;
+    grid-row: 3;
+    max-width: 100%;
+  }
+  .display{
+    grid-column: 2;
+    grid-row: 4;
+    max-width: 100%;
+    /* Width fix - ab zyada nahi hogi */
+    max-height: 450px;
+    overflow-y: auto;
+  }
+}
+
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+}
+
+form {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  width: 450px;
+  margin-bottom: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+  font-weight: 500;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 15px;
+  transition: border 0.3s;
+}
+
+input:focus, select:focus {
+  border-color: #4a90e2;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(74,144,226,0.2);
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #357abd;
+}
+
+#delete-form, .search-div, .task-list {
+  margin-top: 15px;
+  width: 450px;
+}
+
+#display {
+  margin-top: 20px;
+  width: 450px;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+#display h3 {
+  color: #4a90e2;
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+
+#display p {
+  margin-bottom: 15px;
+  color: #555;
+  line-height: 1.5;
+}
+
+.task-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list-button {
+  width: auto;
+  padding: 8px 20px;
+}
+
+.search-div {
+  display: flex;
+  gap: 10px;
+}
+
+.search-div input {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.search-div button {
+  width: auto;
+  padding: 10px 15px;
+}
+
+#search-button {
+  background: #50e3c2;
+}
+
+#search-button:hover {
+  background: #3dbca8;
+}
+
+#delete-button {
+  background: #e74c3c;
+}
+
+#delete-button:hover {
+  background: #c0392b;
+}
+
+@media (max-width: 500px) {
+  form, #delete-form, .search-div, .task-list, #display {
+    width: 90%;
+  }
+  
+  .search-div {
+    flex-direction: column;
+  }
+  
+  .search-div button {
+    width: 100%;
+  }
+} */

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"/>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap;">
+
+
+</head>
+
+<body>
+    <form class="task-form" id="task-form">
+        <h1>To Do List</h1>
+        <div class="task-div" id="task-div">
+            <label id="task-label">Task :</label>
+            <input type="text" id="task" placeholder="Enter a new task" required>
+            <label id="task-description">Description :</label>
+            <input type="text" id="description" placeholder="Enter a description" required>
+        </div>
+        <div class="priority-div" id="priority-div">
+            <label id="priority-label">Priority :</label>
+            <select id="priority" required>
+                <option value="">Select priority</option>
+                <option value="high">High</option>
+                <option value="medium">Medium</option>
+                <option value="low">Low</option>
+            </select>
+        </div>
+        <div class="categories-div" id="categories-div">
+            <label id="categories-label">Categories :</label>
+            <select id="categories" required>
+                <option value="work">Work</option>
+                <option value="personal">Personal</option>
+                <option value="study">Study</option>
+                <option value="health">Health</option>
+                <option value="shopping">Shopping</option>
+                <option value="others" selected>Others</option>
+            </select>
+        </div>
+        <div class="date-div" id="date-div">
+            <label id="date-label">Due Date :</label>
+            <input type="date" id="date" required>
+        </div>
+        <div class="submit-task-div" id="submit-task-div">
+            <button type="submit" id="submit-task">Add Task</button>
+        </div>
+    </form>
+    <form class="delete-form" id="delete-form">
+    <div class="delete-div" id="delete-div">
+        <input type="text" id="delete-task-input" placeholder="Enter task to delete" required>
+        <button type="submit" id="delete-button">Delete a Task</button>
+    </div>
+    </form>
+
+    <div class ="search-div" id="search-div">
+        <input type="text" id="search" placeholder="Search tasks">
+        <button type="button" id="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </div>
+    <div class="task-list" id="task-list">
+        <p id="list-p" style="display: inline-block;"> Display All Task List</p>
+        <input type="button" id="list-button" class="list-button" value="Display">  
+    </div>
+ 
+    <div id="display" class="display"></div>
+    <script src="to-do-list.js"></script>
+</body>
+
+</html>
