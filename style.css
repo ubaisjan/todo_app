@@ -18,13 +18,14 @@ body {
 
 /* Common Card */
 .task-form, .delete-form, .search-div, .task-list, .display {
-  width: 95%;
+  width: 100%;
   max-width: 460px;
   background: #ffffff;
   padding: 18px;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.09);
   border: 1px solid #e5e7eb;
+  overflow: hidden;
 }
 
 h1 {
@@ -52,6 +53,8 @@ input, select {
   outline: none;
   transition: 0.2s;
   margin-bottom: 2px;
+  -webkit-appearance: none;
+  box-sizing: border-box;
 }
 
 input:focus, select:focus {
@@ -63,6 +66,7 @@ input:focus, select:focus {
 input[type="date"] {
   width: 100% !important;
   min-width: 0;
+  -webkit-min-logical-width: 0;
 }
 
 button, #list-button {
