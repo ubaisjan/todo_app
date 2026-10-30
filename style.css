@@ -1,11 +1,11 @@
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-body{
+body {
   background: #dfe8f5;
   min-height: 100vh;
   padding: 20px;
@@ -13,11 +13,12 @@ body{
   flex-direction: column;
   align-items: center;
   gap: 16px;
+  overflow-x: hidden;
 }
 
 /* Common Card */
-.task-form, .delete-form, .search-div, .task-list, .display{
-  width: 100%;
+.task-form, .delete-form, .search-div, .task-list, .display {
+  width: 95%;
   max-width: 460px;
   background: #ffffff;
   padding: 18px;
@@ -26,14 +27,14 @@ body{
   border: 1px solid #e5e7eb;
 }
 
-h1{
+h1 {
   text-align: center;
   font-size: 22px;
   color: #111827;
   margin-bottom: 15px;
 }
 
-label{
+label {
   display: block;
   font-size: 13px;
   font-weight: 700;
@@ -41,7 +42,7 @@ label{
   margin: 12px 0 5px 2px;
 }
 
-input, select{
+input, select {
   width: 100%;
   padding: 11px 12px;
   border: 1.5px solid #d1d5db;
@@ -53,13 +54,18 @@ input, select{
   margin-bottom: 2px;
 }
 
-input:focus, select:focus{
+input:focus, select:focus {
   border-color: #2563eb;
   background: #fff;
   box-shadow: 0 0 0 3px rgba(37,99,235,0.15);
 }
 
-button, #list-button{
+input[type="date"] {
+  width: 100% !important;
+  min-width: 0;
+}
+
+button, #list-button {
   width: 100%;
   padding: 12px;
   border: none;
@@ -71,20 +77,35 @@ button, #list-button{
   transition: 0.2s;
 }
 
-#submit-task{ background: #2563eb; }
-#submit-task:hover{ background: #1e40af; }
+#submit-task {
+  background: #2563eb;
+}
 
-#delete-button{ background: #ef4444; }
-#delete-button:hover{ background: #dc2626; }
+#submit-task:hover {
+  background: #1e40af;
+}
 
-.search-div{
+#delete-button {
+  background: #ef4444;
+}
+
+#delete-button:hover {
+  background: #dc2626;
+}
+
+.search-div {
   display: flex;
   flex-direction: row;
   gap: 8px;
   align-items: center;
 }
-.search-div input{ margin: 0; flex: 1; }
-#search-button{
+
+.search-div input {
+  margin: 0;
+  flex: 1;
+}
+
+#search-button {
   width: 46px;
   height: 42px;
   flex-shrink: 0;
@@ -95,33 +116,44 @@ button, #list-button{
   padding: 0;
 }
 
-.task-list{
+.task-list {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.task-list p{ font-weight: 700; font-size: 14px; }
-#list-button{
+
+.task-list p {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+#list-button {
   width: auto;
   padding: 8px 20px;
   background: #059669;
 }
-#list-button:hover{ background: #047857; }
 
-/* DISPLAY FIX - Yahi tumhara main issue tha */
-.display:empty{
+#list-button:hover {
+  background: #047857;
+}
+
+/* DISPLAY FIX */
+.display:empty {
   display: none;
 }
-.display{
+
+.display {
   padding: 12px;
 }
-.display h3{
+
+.display h3 {
   display: inline;
   font-size: 14px;
   color: #1e40af;
   font-weight: 800;
 }
-.display p{
+
+.display p {
   display: inline;
   font-size: 13px;
   color: #374151;
@@ -132,8 +164,14 @@ button, #list-button{
   border-radius: 6px;
   margin-left: 6px;
 }
-.display h3::after{ content: ""; display: block; margin-top: 4px; }
-.display p::after{
+
+.display h3::after {
+  content: "";
+  display: block;
+  margin-top: 4px;
+}
+
+.display p::after {
   content: "";
   display: block;
   height: 1px;
@@ -142,7 +180,7 @@ button, #list-button{
 }
 
 /* Messages ke liye */
-#submit-task-div p, #delete-div p, #search-div p{
+#submit-task-div p, #delete-div p, #search-div p {
   font-size: 13px;
   margin-top: 8px;
   padding: 6px 8px;
@@ -152,8 +190,8 @@ button, #list-button{
 }
 
 /* LAPTOP / PC VIEW */
-@media (min-width: 900px){
-  body{
+@media (min-width: 900px) {
+  body {
     display: grid;
     grid-template-columns: 460px 460px;
     justify-content: center;
@@ -163,37 +201,42 @@ button, #list-button{
     margin: 0 auto;
     padding-top: 30px;
   }
-  .task-form{
+
+  .task-form {
     grid-column: 1;
     grid-row: 1 / span 10;
     position: sticky;
     top: 20px;
     max-width: 100%;
   }
-  .delete-form{
+
+  .delete-form {
     grid-column: 2;
     grid-row: 1;
     max-width: 100%;
   }
-  .search-div{
+
+  .search-div {
     grid-column: 2;
     grid-row: 2;
     max-width: 100%;
   }
-  .task-list{
+
+  .task-list {
     grid-column: 2;
     grid-row: 3;
     max-width: 100%;
   }
-  .display{
+
+  .display {
     grid-column: 2;
     grid-row: 4;
     max-width: 100%;
-    /* Width fix - ab zyada nahi hogi */
     max-height: 450px;
     overflow-y: auto;
   }
 }
+
 
 /* * {
   margin: 0;
